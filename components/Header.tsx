@@ -41,6 +41,12 @@ const Header = () => {
         <div className={style.headerItem}>Stats</div>
         <div className={style.headerItem}>Resources</div>
         <div className={style.headerItem}>Create</div>
+        <div className={style.headerIcon}>
+          <CgProfile />
+        </div>
+        <div className={style.headerIcon}>
+          <MdOutlineAccountBalanceWallet />
+        </div>
       </div>
     </div>
   )
