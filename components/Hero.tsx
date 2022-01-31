@@ -18,7 +18,13 @@ const style = {
 }
 
 const Hero = () => {
-  return <div></div>
+  return (
+    <div className={style.wrapper}>
+      <div className={style.container}>
+        <div className={style.contentWrapper}></div>
+      </div>
+    </div>
+  )
 }
 
 export default Hero
