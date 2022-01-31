@@ -37,7 +37,9 @@ const Header = () => {
         />
       </div>
       <div className={style.headerItems}>
-        <div className={style.headerItem}>Collections</div>
+        <Link href="/collections/0x821097B9d07D02947120cEa52C5b260b00d55CD8">
+          <div className={style.headerItem}>Collections</div>
+        </Link>
         <div className={style.headerItem}>Stats</div>
         <div className={style.headerItem}>Resources</div>
         <div className={style.headerItem}>Create</div>
