@@ -31,6 +31,10 @@ const Header = () => {
         <div className={style.searchIcon}>
           <AiOutlineSearch />
         </div>
+        <input
+          className={style.searchInput}
+          placeholder="Search items, collections and accounts"
+        />
       </div>
     </div>
   )
