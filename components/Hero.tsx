@@ -21,7 +21,13 @@ const Hero = () => {
   return (
     <div className={style.wrapper}>
       <div className={style.container}>
-        <div className={style.contentWrapper}></div>
+        <div className={style.contentWrapper}>
+          <div className={style.copyContainer}>
+            <div className={style.title}>
+              Discover, collect, and sell extraordinary NFTs
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
