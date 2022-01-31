@@ -1,3 +1,4 @@
+import { useWeb3 } from '@3rdweb/hooks'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
@@ -10,10 +11,27 @@ const style = {
 }
 
 export default function Home() {
+  const { address, connectWallet } = useWeb3()
   return (
-    <>
-      <Header />
-      <Hero />
-    </>
+    <div className={style.wrapper}>
+      {address ? (
+        <>
+          <Header />
+          <Hero />
+        </>
+      ) : (
+        <div className={style.walletConnectWrapper}>
+          <button
+            className={style.button}
+            onClick={() => connectWallet('injected')}
+          >
+            Connect Wallet
+          </button>
+          <div className={style.details}>
+            You need Chrome to be <br /> able to run this app.
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
