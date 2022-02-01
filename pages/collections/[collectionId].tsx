@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useWeb3 } from '@3rdweb/hooks'
+import React, { useEffect, useMemo, useState } from 'react'
+import { ThirdwebWeb3Provider, useWeb3 } from '@3rdweb/hooks'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -32,6 +32,29 @@ const Collection = () => {
   const [collection, setCollection] = useState({})
   const [nfts, setNfts] = useState([])
   const [listings, setListing] = useState([])
+
+  // https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO
+
+  const nftModule = useMemo(() => {
+    if (!provider) return
+
+    const sdk = new ThirdwebSDK(
+      provider.getSigner(provider.chainId),
+      'https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO'
+    )
+    return sdk.getNFTModule(collectionId)
+  }, [provider])
+
+  // Get All NFTs in the collection
+  useEffect(() => {
+    if (!nftModule) return
+    ;(async () => {
+      const nfts = await nftModule.getALl()
+
+      setNfts(nfts)
+    })()
+  }, [nftModule])
+
   return (
     <div>
       <Link href="/">
