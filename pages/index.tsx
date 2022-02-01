@@ -16,6 +16,18 @@ const style = {
 export default function Home() {
   const { address, connectWallet } = useWeb3()
 
+  const welcomeUser = (userName: string, toastHandler = toast) => {
+    toastHandler.success(
+      `Welcome back${userName !== 'Unnamed' ? ` ${userName}` : ''}!`,
+      {
+        style: {
+          background: '#04111d',
+          color: '#fff',
+        },
+      }
+    )
+  }
+
   useEffect(() => {
     if (!address) return
     ;(async () => {
@@ -27,11 +39,13 @@ export default function Home() {
       }
 
       const result = await client.createIfNotExists(userDoc)
+      welcomeUser(result.userName)
     })()
   }, [address])
 
   return (
     <div className={style.wrapper}>
+      <Toaster position="top-center" reverseOrder={false} />
       {address ? (
         <>
           <Header />
