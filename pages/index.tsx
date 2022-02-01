@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import { client } from '../lib/sanityClient'
+import toast, { Toaster } from 'react-hot-toast'
 
 const style = {
   wrapper: ``,
@@ -21,7 +22,7 @@ export default function Home() {
       const userDoc = {
         _type: 'users',
         _id: address,
-        usernames: 'Unnamed',
+        userName: 'Unnamed',
         walletAddress: address,
       }
 
