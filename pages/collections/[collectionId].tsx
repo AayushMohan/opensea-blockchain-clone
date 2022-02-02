@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { ThirdwebWeb3Provider, useWeb3 } from '@3rdweb/hooks'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { ThirdwebSDK } from '@3rdweb/sdk'
 
 const style = {
   bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -33,13 +34,11 @@ const Collection = () => {
   const [nfts, setNfts] = useState([])
   const [listings, setListing] = useState([])
 
-  // https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO
-
   const nftModule = useMemo(() => {
     if (!provider) return
 
     const sdk = new ThirdwebSDK(
-      provider.getSigner(provider.chainId),
+      provider.getSigner(),
       'https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO'
     )
     return sdk.getNFTModule(collectionId)
@@ -49,7 +48,7 @@ const Collection = () => {
   useEffect(() => {
     if (!nftModule) return
     ;(async () => {
-      const nfts = await nftModule.getALl()
+      const nfts = await nftModule.getAll()
 
       setNfts(nfts)
     })()
@@ -62,10 +61,36 @@ const Collection = () => {
       provider.getSigner(),
       'https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO'
     )
-    return sdk.getMarketPlaceModule(
+    return sdk.getMarketplaceModule(
       '0x70876A94f84bCD095D3750b230C7fCB27cB50938'
     )
   }, [provider])
+
+  // Get All Listings in the collection
+  useEffect(() => {
+    if (!marketPlaceModule) return
+    ;(async () => {
+      setListing(await marketPlaceModule.getAllListings())
+      setListing(listings)
+    })()
+
+  }), [marketPlaceModule]) 
+  
+
+  const query =`*[_type == "marketItems" && contractAddress == "0x821097B9d07D02947120cEa52C5b260b00d55CD8"] {
+    "imageUrl": bannerImage.asset->url,
+    "bannerImageUrl": bannerImage.asset->url,
+    volumeTraded,
+    createdBy,
+    contactAddress,
+    "creator": createdBy->userName,
+    title, floorPrice,
+    "allOwners": owners[]->,
+    description
+  }`
+
+  console.log(router.query)
+  console.log(router.query.collectionId)
 
   return (
     <div>
