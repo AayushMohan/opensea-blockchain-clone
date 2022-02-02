@@ -4,6 +4,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ThirdwebSDK } from '@3rdweb/sdk'
 import { client } from '../../lib/sanityClient'
+import Header from '../../components/Header'
+import { CgWebsite } from 'react-icons/cg'
+import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
+import { HiDotsVertical } from 'react-icons/hi'
 
 const style = {
   bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -33,7 +37,7 @@ const Collection = () => {
   const { collectionId } = router.query
   const [collection, setCollection] = useState({})
   const [nfts, setNfts] = useState([])
-  const [listings, setListing] = useState([])
+  const [listings, setListings] = useState([])
 
   const nftModule = useMemo(() => {
     if (!provider) return
@@ -44,7 +48,6 @@ const Collection = () => {
     )
     return sdk.getNFTModule(collectionId)
   }, [provider])
-
   // Get All NFTs in the collection
   useEffect(() => {
     if (!nftModule) return
@@ -71,11 +74,9 @@ const Collection = () => {
   useEffect(() => {
     if (!marketPlaceModule) return
     ;(async () => {
-      setListing(await marketPlaceModule.getAllListings())
-      setListing(listings)
+      setListings(await marketPlaceModule.getAllListings())
     })()
-  }),
-    [marketPlaceModule]
+  }, [marketPlaceModule])
 
   const fetchCollectionData = async (sanityClient = client) => {
     const query = `*[_type == "marketItems" && contractAddress == "${collectionId}"] {
@@ -106,13 +107,7 @@ const Collection = () => {
   console.log(router.query)
   console.log(router.query.collectionId)
 
-  return (
-    <div>
-      <Link href="/">
-        <h2>{router.query.collectionId}</h2>
-      </Link>
-    </div>
-  )
+  return <div></div>
 }
 
 export default Collection
