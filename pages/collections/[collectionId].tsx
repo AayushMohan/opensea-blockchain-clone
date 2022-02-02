@@ -108,7 +108,28 @@ const Collection = () => {
   console.log(router.query)
   console.log(router.query.collectionId)
 
-  return <div></div>
+  return (
+    <div className="overflow-hidden">
+      <Header />
+
+      <div className={style.bannerImageContainer}>
+        <img
+          className={style.bannerImage}
+          src="https://lh3.googleusercontent.com/i5dYZRkVCUK97bfprQ3WXyrT9BnLSZtVKGJlKQ919uaUB0sxbngVCioaiyu9r6snqfi2aaTyIvv6DHm4m2R3y7hMajbsv14pSZK8mhs=h600"
+          alt="banner"
+        />
+      </div>
+      <div className={style.infoContainer}>
+        <div className={style.midRow}>
+          <img
+            className={style.profileImg}
+            src="https://lh3.googleusercontent.com/Ju9CkWtV-1Okvf45wo8UctR-M9He2PjILP0oOvxE89AyiPPGtrR3gysu1Zgy0hjd2xKIgjJJtWIc0ybj4Vd7wv8t3pxDGHoJBzDB=s0"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Collection
