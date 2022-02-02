@@ -3,6 +3,7 @@ import { ThirdwebWeb3Provider, useWeb3 } from '@3rdweb/hooks'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ThirdwebSDK } from '@3rdweb/sdk'
+import { client } from '../../lib/sanityClient'
 
 const style = {
   bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -73,11 +74,11 @@ const Collection = () => {
       setListing(await marketPlaceModule.getAllListings())
       setListing(listings)
     })()
+  }),
+    [marketPlaceModule]
 
-  }), [marketPlaceModule]) 
-  
-
-  const query =`*[_type == "marketItems" && contractAddress == "0x821097B9d07D02947120cEa52C5b260b00d55CD8"] {
+  const fetchCollectionData = async (sanityClient = client) => {
+    const query = `*[_type == "marketItems" && contractAddress == "${collectionId}"] {
     "imageUrl": bannerImage.asset->url,
     "bannerImageUrl": bannerImage.asset->url,
     volumeTraded,
@@ -88,6 +89,19 @@ const Collection = () => {
     "allOwners": owners[]->,
     description
   }`
+
+    const collectionData = await sanityClient.fetch(query)
+
+    console.log(collectionData, '🔥')
+
+    // the query returns 1 object inside of an array
+
+    await setCollection(collectionData[0])
+  }
+
+  useEffect(() => {
+    fetchCollectionData()
+  }, [collectionId])
 
   console.log(router.query)
   console.log(router.query.collectionId)
