@@ -130,22 +130,23 @@ const Collection = () => {
         <div className={style.endRow}>
           <div className={style.socialIconsContainer}>
             <div className={style.socialIconsWrapper}>
-              <div className={style.socialIcon}>  
+              <div className={style.socialIcon}>
                 <CgWebsite />
-            </div>
-            <div className={style.divider}/>
-            <div className={style.socialIcon}>
-              <AiOutlineInstagram />
-            </div>
+              </div>
+              <div className={style.divider} />
+              <div className={style.socialIcon}>
+                <AiOutlineInstagram />
+              </div>
 
-            <div className={style.divider}/>
-             <div className={style.socialIcon}>
-              <AiOutlineTwitter />
-            </div>
-            
-            <div className={style.divider}/>
-             <div className={style.socialIcon}>
-              <HiDotsVertical />
+              <div className={style.divider} />
+              <div className={style.socialIcon}>
+                <AiOutlineTwitter />
+              </div>
+
+              <div className={style.divider} />
+              <div className={style.socialIcon}>
+                <HiDotsVertical />
+              </div>
             </div>
           </div>
         </div>
