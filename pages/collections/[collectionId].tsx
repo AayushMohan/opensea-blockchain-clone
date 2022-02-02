@@ -137,6 +137,16 @@ const Collection = () => {
             <div className={style.socialIcon}>
               <AiOutlineInstagram />
             </div>
+
+            <div className={style.divider}/>
+             <div className={style.socialIcon}>
+              <AiOutlineTwitter />
+            </div>
+            
+            <div className={style.divider}/>
+             <div className={style.socialIcon}>
+              <HiDotsVertical />
+            </div>
           </div>
         </div>
       </div>
