@@ -124,8 +124,16 @@ const Collection = () => {
           <img
             className={style.profileImg}
             src="https://lh3.googleusercontent.com/Ju9CkWtV-1Okvf45wo8UctR-M9He2PjILP0oOvxE89AyiPPGtrR3gysu1Zgy0hjd2xKIgjJJtWIc0ybj4Vd7wv8t3pxDGHoJBzDB=s0"
-            alt=""
+            alt="profile image"
           />
+        </div>
+        <div className={style.endRow}>
+          <div className={style.socialIconsContainer}>
+            <div className={style.socialIconsWrapper}>
+              <div className={style.socialIcon}>  
+                <CgWebsite />
+            </div>
+          </div>
         </div>
       </div>
     </div>
