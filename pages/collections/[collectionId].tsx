@@ -133,6 +133,10 @@ const Collection = () => {
               <div className={style.socialIcon}>  
                 <CgWebsite />
             </div>
+            <div className={style.divider}/>
+            <div className={style.socialIcon}>
+              <AiOutlineInstagram />
+            </div>
           </div>
         </div>
       </div>
