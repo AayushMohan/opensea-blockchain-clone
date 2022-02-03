@@ -46,6 +46,11 @@ const NFTCard = ({ nftItem, title, listings }) => {
       <div className={style.imgContainer}>
         <img src={nftItem.image} alt={nftItem.name} className={style.nftImg} />
       </div>
+      <div className={style.details}>
+        <div className={style.info}>
+          <div className={style.collectionName}>{title}</div>
+        </div>
+      </div>
     </div>
   )
 }
