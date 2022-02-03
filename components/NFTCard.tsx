@@ -1,4 +1,6 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { BiHeart } from 'react-icons/bi'
+import { Router } from 'next/router'
 
 const style = {
   wrapper: `bg-[#303339] flex-auto w-[14rem] h-[22rem] my-10 mx-5 rounded-2xl overflow-hidden cursor-pointer`,
