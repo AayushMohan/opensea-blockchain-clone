@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useWeb3 } from '@3rdweb/hooks'
 import { client } from '../../lib/sanityClient'
-import { ThirdwebSDK } from '@3rdweb/sdk'
+import { NFTModule, ThirdwebSDK } from '@3rdweb/sdk'
 import Header from '../../components/Header'
 import { CgWebsite } from 'react-icons/cg'
 import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
@@ -209,6 +209,17 @@ const Collection = () => {
       </div>
       <div className={style.midRow}>
         <div className={style.description}>{collection?.description}</div>
+      </div>
+
+      <div className="flex flex-wrap">
+        {nfts.map((nftItem, id) => (
+          <NFTCard
+            key={id}
+            nftItem={nftItem}
+            title={collection?.title}
+            listings={listings}
+          />
+        ))}
       </div>
     </div>
   )
