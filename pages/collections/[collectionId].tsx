@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { ThirdwebWeb3Provider, useWeb3 } from '@3rdweb/hooks'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { ThirdwebSDK } from '@3rdweb/sdk'
+import Link from 'next/link'
+import { useWeb3 } from '@3rdweb/hooks'
 import { client } from '../../lib/sanityClient'
+import { ThirdwebSDK } from '@3rdweb/sdk'
 import Header from '../../components/Header'
 import { CgWebsite } from 'react-icons/cg'
 import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
@@ -79,13 +79,16 @@ const Collection = () => {
     })()
   }, [marketPlaceModule])
 
-  const fetchCollectionData = async (sanityClient = client) => {
+  const fetchCollectionData = async (
+    sanityClient = client,
+    collectionId = collectionId
+  ) => {
     const query = `*[_type == "marketItems" && contractAddress == "${collectionId}"] {
-    "imageUrl": bannerImage.asset->url,
+    "imageUrl": profileImage.asset->url,
     "bannerImageUrl": bannerImage.asset->url,
     volumeTraded,
     createdBy,
-    contactAddress,
+    contractAddress,
     "creator": createdBy->userName,
     title, floorPrice,
     "allOwners": owners[]->,
@@ -159,6 +162,14 @@ const Collection = () => {
         <div className={style.createdBy}>
           Created by{' '}
           <span className="text-[#2081e2]">{collection?.creator}</span>
+        </div>
+      </div>
+      <div className={style.midRow}>
+        <div className={style.statsContainer}>
+          <div className={style.collectionStat}>
+            <div className={style.statValue}>{nfts.length}</div>
+            <div className={style.statName}>items</div>
+          </div>
         </div>
       </div>
     </div>

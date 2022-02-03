@@ -18,7 +18,7 @@ export default function Home() {
 
   const welcomeUser = (userName: string, toastHandler = toast) => {
     toastHandler.success(
-      `Welcome back${userName !== 'Unnamed' ? ` ${userName}` : ''}!`,
+      `Welcome back ${userName !== 'Unnamed' ? ` ${userName}` : ''}!`,
       {
         style: {
           background: '#04111d',
