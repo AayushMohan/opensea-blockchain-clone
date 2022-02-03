@@ -203,8 +203,12 @@ const Collection = () => {
               />
               {collection?.volumeTraded}.5K
             </div>
+            <div className={style.statName}>Volume Traded</div>
           </div>
         </div>
+      </div>
+      <div className={style.midRow}>
+        <div className={style.description}>{collection?.description}</div>
       </div>
     </div>
   )
