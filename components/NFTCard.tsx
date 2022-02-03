@@ -21,7 +21,7 @@ const style = {
 
 const NFTCard = ({ nftItem, title, listings }) => {
   const [isListed, setIsListed] = useState(false)
-
+  const [price, setPrice] = useState(0)
   return <img src={nftItem.image} alt="" />
 }
 
