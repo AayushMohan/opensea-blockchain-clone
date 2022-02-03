@@ -175,13 +175,13 @@ const Collection = () => {
         <div className={style.statsContainer}>
           <div className={style.collectionStat}>
             <div className={style.statValue}>{nfts.length}</div>
-            <div className={style.statName}>items</div>
+            <div className={style.statName}>Items</div>
           </div>
           <div className={style.collectionStat}>
             <div className={style.statValue}>
               {collection?.allOwners ? collection.allOwners.length : ''}
             </div>
-            <div className={style.statName}>owners</div>
+            <div className={style.statName}>Owners</div>
           </div>
           <div className={style.collectionStat}>
             <div className={style.statValue}>
@@ -190,7 +190,9 @@ const Collection = () => {
                 alt="eth"
                 className={style.ethLogo}
               />
+              {collection?.floorPrice}
             </div>
+            <div className={style.statName}>Floor Price</div>
           </div>
         </div>
       </div>
