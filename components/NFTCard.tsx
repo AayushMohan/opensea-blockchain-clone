@@ -33,7 +33,17 @@ const NFTCard = ({ nftItem, title, listings }) => {
     }
   }, [listings, nftItem])
 
-  return <img src={nftItem.image} alt="" />
+  return (
+    <div
+      className={style.wrapper}
+      onClick={() => {
+        Router.push({
+          pathname: `/assets/${nftItem.id}`,
+          query: { isListed: isListed },
+        })
+      }}
+    ></div>
+  )
 }
 
 export default NFTCard
