@@ -127,29 +127,35 @@ const Collection = () => {
         <div className={style.midRow}>
           <img
             className={style.profileImg}
-            src="https://lh3.googleusercontent.com/Ju9CkWtV-1Okvf45wo8UctR-M9He2PjILP0oOvxE89AyiPPGtrR3gysu1Zgy0hjd2xKIgjJJtWIc0ybj4Vd7wv8t3pxDGHoJBzDB=s0"
+            src={
+              collection?.imageUrl
+                ? collection.imageUrl
+                : 'https://via.placeholder.com/200'
+            }
             alt="profile image"
           />
         </div>
         <div className={style.endRow}>
           <div className={style.socialIconsContainer}>
             <div className={style.socialIconsWrapper}>
-              <div className={style.socialIcon}>
-                <CgWebsite />
-              </div>
-              <div className={style.divider} />
-              <div className={style.socialIcon}>
-                <AiOutlineInstagram />
-              </div>
+              <div className={style.socialIconsContent}>
+                <div className={style.socialIcon}>
+                  <CgWebsite />
+                </div>
+                <div className={style.divider} />
+                <div className={style.socialIcon}>
+                  <AiOutlineInstagram />
+                </div>
 
-              <div className={style.divider} />
-              <div className={style.socialIcon}>
-                <AiOutlineTwitter />
-              </div>
+                <div className={style.divider} />
+                <div className={style.socialIcon}>
+                  <AiOutlineTwitter />
+                </div>
 
-              <div className={style.divider} />
-              <div className={style.socialIcon}>
-                <HiDotsVertical />
+                <div className={style.divider} />
+                <div className={style.socialIcon}>
+                  <HiDotsVertical />
+                </div>
               </div>
             </div>
           </div>
