@@ -79,10 +79,7 @@ const Collection = () => {
     })()
   }, [marketPlaceModule])
 
-  const fetchCollectionData = async (
-    sanityClient = client,
-    collectionId = collectionId
-  ) => {
+  const fetchCollectionData = async (sanityClient = client) => {
     const query = `*[_type == "marketItems" && contractAddress == "${collectionId}"] {
     "imageUrl": profileImage.asset->url,
     "bannerImageUrl": bannerImage.asset->url,
@@ -118,7 +115,11 @@ const Collection = () => {
       <div className={style.bannerImageContainer}>
         <img
           className={style.bannerImage}
-          src="https://lh3.googleusercontent.com/i5dYZRkVCUK97bfprQ3WXyrT9BnLSZtVKGJlKQ919uaUB0sxbngVCioaiyu9r6snqfi2aaTyIvv6DHm4m2R3y7hMajbsv14pSZK8mhs=h600"
+          src={
+            collection?.bannerImageUrl
+              ? collection.bannerImageUrl
+              : 'https://via.placeholder.com/200'
+          }
           alt="banner"
         />
       </div>
