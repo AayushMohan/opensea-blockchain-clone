@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/collections/[collectionId].tsx", "components/NFTCard.tsx", "components/nft/itemActivity/EventItem.js", "components/nft/ItemActivity.js", "components/nft/GeneralDetails.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/collections/[collectionId].js", "components/NFTCard.js", "components/nft/itemActivity/EventItem.js", "components/nft/ItemActivity.js", "components/nft/GeneralDetails.js",,, "static/dummyEvents.js", "pages/index.js", "pages/_app.js", "pages/nfts/[nftId].js" "lib/sanityClient.js" "components/Hero.js", "components/Header.js", "components/nft/Purchase.js", "components/nft/NFTImage.js"],
   "exclude": ["node_modules"]
 }
