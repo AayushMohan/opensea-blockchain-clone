@@ -75,7 +75,12 @@ const Nft = () => {
             </div>
             <div className={style.detailsContainer}>
               <GeneralDetails selectedNft={selectedNft} />
-              <Purchase />
+              <Purchase
+                isListed={router.query.isListed}
+                selectedNft={selectedNft}
+                listings={listings}
+                marketplaceModule={marketPlaceModule}
+              />
             </div>
           </div>
           <ItemActivity />
