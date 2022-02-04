@@ -12,7 +12,11 @@ const style = {
 }
 
 const EventItem = ({ event }) => {
-  return <div></div>
+  return (
+    <div className={style.eventName}>
+      <div className={`${style.event} flex-[2]`}></div>
+    </div>
+  )
 }
 
 export default EventItem
