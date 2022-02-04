@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 const style = () => {
   wrapper: `flex flex-col items-center container-lg text-[#e5e8eb]`,
   container: `container p-6`,
-  topContainer: `flex`,
+  topContent: `flex`,
   nftImgContainer: `flex-1 mr-4`,
   detailsContainer: `flex-[2] ml-4`,
 }
@@ -41,35 +41,33 @@ const Nft = () => {
       setSelectedNft(selectedNftArray)
     })()
     
-    const marketPlaceModule = useMemo(() => {
-
-      if(!provider) return
-
-      const sdk = new ThirdwebSDK(
-        provider?.getSigner(),
-        'https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO',
-      )
-
-      return sdk.getMarketplaceModule(
-        '0x70876A94f84bCD095D3750b230C7fCB27cB50938'
-      )
-
-    }, [provider])
-    
   },[nftModule])
+  
+  const marketPlaceModule = useMemo(() => {
 
-  const marketPlaceModule = useMemo(() => {}, [provider])
+    if(!provider) return
 
+    const sdk = new ThirdwebSDK(
+      provider?.getSigner(),
+      'https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO',
+    )
 
+    return sdk.getMarketplaceModule(
+      '0x70876A94f84bCD095D3750b230C7fCB27cB50938'
+    ) 
 
+  }, [provider])
+  
+  useEffect(() => {
+    if (!marketPlaceModule) return
+    ;(async () => {
+      setListings(await marketPlaceModule.getAllListings())
+    })()
 
-
-
-
-
+  }, [marketPlaceModule])
 
   return <Header/>
 }
 
 
-export default NFT
+export default Nft;
