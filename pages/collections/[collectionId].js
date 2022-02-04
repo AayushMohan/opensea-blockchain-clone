@@ -109,11 +109,7 @@ const Collection = () => {
       <div className={style.bannerImageContainer}>
         <img
           className={style.bannerImage}
-          src={
-            collection?.bannerImageUrl
-              ? collection.bannerImageUrl
-              : 'https://via.placeholder.com/200'
-          }
+          src="https://lh3.googleusercontent.com/i5dYZRkVCUK97bfprQ3WXyrT9BnLSZtVKGJlKQ919uaUB0sxbngVCioaiyu9r6snqfi2aaTyIvv6DHm4m2R3y7hMajbsv14pSZK8mhs=h600"
           alt="banner"
         />
       </div>
@@ -121,11 +117,7 @@ const Collection = () => {
         <div className={style.midRow}>
           <img
             className={style.profileImg}
-            src={
-              collection?.imageUrl
-                ? collection.imageUrl
-                : 'https://via.placeholder.com/200'
-            }
+            src="https://lh3.googleusercontent.com/Ju9CkWtV-1Okvf45wo8UctR-M9He2PjILP0oOvxE89AyiPPGtrR3gysu1Zgy0hjd2xKIgjJJtWIc0ybj4Vd7wv8t3pxDGHoJBzDB=s130"
             alt="profile image"
           />
         </div>
