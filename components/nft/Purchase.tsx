@@ -12,6 +12,10 @@ const style = {
 const MakeOffer = ({ isListed, selectedNft, listings, marketPlaceModule }) => {
   const [selectedMarketNft, setSelectedMarketNft] = useState()
   const [enableButton, setEnableButton] = useState(false)
+
+  useEffect(() => {
+    if (!listings || isListed === 'false') return
+  }, [selectedNft, listings, isListed])
 }
 
 export default MakeOffer
