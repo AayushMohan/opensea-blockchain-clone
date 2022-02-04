@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,6 +19,14 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/collections/[collectionId].js", "components/NFTCard.js", "components/nft/itemActivity/EventItem.js", "components/nft/ItemActivity.js", "components/nft/GeneralDetails.js",,, "static/dummyEvents.js", "pages/index.js", "pages/_app.js", "pages/nfts/[nftId].js" "lib/sanityClient.js" "components/Hero.js", "components/Header.js", "components/nft/Purchase.js", "components/nft/NFTImage.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/index.js",
+    "pages/_app.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
