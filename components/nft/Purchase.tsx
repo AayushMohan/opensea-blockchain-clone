@@ -27,6 +27,14 @@ const MakeOffer = ({ isListed, selectedNft, listings, marketPlaceModule }) => {
 
     setEnableButton(true)
   }, [selectedMarketNft, selectedNft])
+
+  const confirmPurchase = (toastHandler = toast) =>
+    toastHandler.success(`Purchase successful!`, {
+      style: {
+        background: '#04111d',
+        color: '#fff',
+      },
+    })
 }
 
 export default MakeOffer
