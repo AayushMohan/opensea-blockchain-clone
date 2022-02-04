@@ -8,3 +8,10 @@ const style = {
   buttonIcon: `text-xl`,
   buttonText: `ml-2 text-lg font-semibold`,
 }
+
+const MakeOffer = ({ isListed, selectedNft, listings, marketPlaceModule }) => {
+  const [selectedMarketNft, setSelectedMarketNft] = useState()
+  const [enableButton, setEnableButton] = useState(false)
+}
+
+export default MakeOffer
