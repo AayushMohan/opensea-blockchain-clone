@@ -35,9 +35,7 @@ const Nft = () => {
     ;(async () => {
       const nfts = await nftModule.getAll()
 
-      const selectedNftArray = nfts.find(
-        (nft) => nft.id === router.query.assetId
-      )
+      const selectedNftArray = nfts.find((nft) => nft.id === router.query.nftId)
 
       setSelectedNft(selectedNftArray)
     })()
