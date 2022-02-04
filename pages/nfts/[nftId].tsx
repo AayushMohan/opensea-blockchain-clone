@@ -40,10 +40,25 @@ const Nft = () => {
       
       setSelectedNft(selectedNftArray)
     })()
-      
+    
+    const marketPlaceModule = useMemo(() => {
+
+      if(!provider) return
+
+      const sdk = new ThirdwebSDK(
+        provider?.getSigner(),
+        'https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO',
+      )
+
+      return sdk.getMarketplaceModule(
+        '0x70876A94f84bCD095D3750b230C7fCB27cB50938'
+      )
+
+    }, [provider])
     
   },[nftModule])
 
+  const marketPlaceModule = useMemo(() => {}, [provider])
 
 
 
