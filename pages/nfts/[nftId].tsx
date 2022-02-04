@@ -67,7 +67,9 @@ const Nft = () => {
       <div className={style.wrapper}>
         <div className={style.container}>
           <div className={style.topContent}>
-            <div className={style.nftImgContainer}></div>
+            <div className={style.nftImgContainer}>
+              <NFTImage selectedNft={selectedNft} />
+            </div>
           </div>
         </div>
       </div>
