@@ -18,6 +18,22 @@ const style = {
 
 const ItemActivity = () => {
   const [toggle, setToggle] = useState(true)
+
+  return (
+    <div className={style.wrapper}>
+      <div className={style.title} onClick={() => setToggle(!toggle)}>
+        <div className={style.titleLeft}>
+          <span className={style.titleIcon}>
+            <CgArrowsExchangeV />
+          </span>
+          Item Activity
+          <div className={style.titleRight}>
+            {toggle ? <AiOutlineUp /> : <AiOutlineDown />}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default ItemActivity
