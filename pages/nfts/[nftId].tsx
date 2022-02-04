@@ -66,7 +66,7 @@ const Nft = () => {
   return (
     <div>
       <Header />
-      <NFTImage />
+      <NFTImage selectedNft={selectedNft} />
     </div>
   )
 }
