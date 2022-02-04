@@ -21,6 +21,12 @@ const MakeOffer = ({ isListed, selectedNft, listings, marketPlaceModule }) => {
       )
     })()
   }, [selectedNft, listings, isListed])
+
+  useEffect(() => {
+    if (!selectedMarketNft || !selectedNft) return
+
+    setEnableButton(true)
+  }, [selectedMarketNft, selectedNft])
 }
 
 export default MakeOffer
