@@ -35,21 +35,28 @@ const MakeOffer = ({ isListed, selectedNft, listings, marketPlaceModule }) => {
         color: '#fff',
       },
     })
+
   const buyItem = async (
     listingId = selectedMarketNft.id,
     quantityDesired = 1,
     module = marketPlaceModule
   ) => {
-    console.log(listingId, quantityDesired, module, 'david') /
-      (await module
-        .buyoutDirectListing({
-          listingId: listingId,
-          quantityDesired: quantityDesired,
-        })
-        .catch((error) => console.error(error)))
+    console.log(listingId, quantityDesired, module, 'david')
+    await module
+      .buyoutDirectListing({
+        listingId: listingId,
+        quantityDesired: quantityDesired,
+      })
+      .catch((error) => console.error(error))
 
     confirmPurchase()
   }
+
+  return (
+    <div className="flex h-20 w-full items-center rounded-lg border border-[#151c22] bg-[#303339] px-12">
+      <Toaster position="bottom-left" reverseOrder={false} />
+    </div>
+  )
 }
 
 export default MakeOffer
