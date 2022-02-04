@@ -17,7 +17,7 @@ const style = {
 }
 
 const ItemActivity = () => {
-  return <div></div>
+  const [toggle, setToggle] = useState(true)
 }
 
 export default ItemActivity
