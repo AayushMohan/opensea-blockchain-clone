@@ -39,6 +39,10 @@ const GeneralDetails = ({ selectedNft }) => {
           <div className={`${style.actionButton} ml-2`}>
             <MdRefresh />
           </div>
+          <div className={style.divider} />
+          <div className={style.actionButton}>
+            <RiShareBoxLine />
+          </div>
         </div>
       </div>
     </div>
