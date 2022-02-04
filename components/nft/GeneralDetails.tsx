@@ -43,6 +43,10 @@ const GeneralDetails = ({ selectedNft }) => {
           <div className={style.actionButton}>
             <RiShareBoxLine />
           </div>
+          <div className={style.divider} />
+          <div className={style.actionButton}>
+            <GiShare />
+          </div>
         </div>
       </div>
     </div>
