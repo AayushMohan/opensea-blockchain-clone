@@ -18,7 +18,14 @@ const NFT = () => {
   const [listings, setListings] = useState()
   const router = useRouter()
 
-  
+  const nftModule = useMemo(() => {
+    if (!provider) return
+    
+    const sdk = new ThirdwebSDK(
+    provider?.getSigner(),
+    'https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO',
+    )
+  }, [provider])
 
 
 
