@@ -19,8 +19,14 @@ const style = {
   divider: `border-r-2`,
 }
 
-const GeneralDetails = (selectedNft) => {
-  return <div></div>
+const GeneralDetails = ({ selectedNft }) => {
+  return (
+    <div className={style.wrapper}>
+      <div className={style.infoContainer}>
+        <div className={style.accent}>Bored Ape Yacht Club</div>
+      </div>
+    </div>
+  )
 }
 
 export default GeneralDetails
