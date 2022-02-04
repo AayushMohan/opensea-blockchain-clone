@@ -35,9 +35,9 @@ const Nft = () => {
     ;(async () => {
       const nfts = await nftModule.getAll()
 
-      const selectedNftArray = nfts.find((nft) => nft.id === router.query.nftId)
+      const selectedNftItem = nfts.find((nft) => nft.id === router.query.nftId)
 
-      setSelectedNft(selectedNftArray)
+      setSelectedNft(selectedNftItem)
     })()
   }, [nftModule])
 
@@ -64,7 +64,13 @@ const Nft = () => {
   return (
     <div>
       <Header />
-      <NFTImage selectedNft={selectedNft} />
+      <div className={style.wrapper}>
+        <div className={style.container}>
+          <div className={style.topContent}>
+            <div className={style.nftImgContainer}></div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
