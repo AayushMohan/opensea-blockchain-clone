@@ -15,6 +15,11 @@ const MakeOffer = ({ isListed, selectedNft, listings, marketPlaceModule }) => {
 
   useEffect(() => {
     if (!listings || isListed === 'false') return
+    ;(async () => {
+      setSelectedMarketNft(
+        listings.find((marketNft) => marketNft.asset?.id === selectedNft.id)
+      )
+    })()
   }, [selectedNft, listings, isListed])
 }
 
