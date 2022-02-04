@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/collections/[collectionId].tsx", "components/NFTCard.tsx", "components/nft/itemActivity/EventItem.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/collections/[collectionId].tsx", "components/NFTCard.tsx", "components/nft/itemActivity/EventItem.js", "components/nft/ItemActivity.js", "components/nft/GeneralDetails.js"],
   "exclude": ["node_modules"]
 }
