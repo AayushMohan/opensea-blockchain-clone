@@ -12,7 +12,7 @@ const style = () => {
   detailsContainer: `flex-[2] ml-4`,
 }
 
-const NFT = () => {
+const Nft = () => {
   const { provider } = useWeb3() 
   const [selectedNft, setSelectedNft] = useState()
   const [listings, setListings] = useState()
@@ -25,9 +25,24 @@ const NFT = () => {
     provider?.getSigner(),
     'https://eth-rinkeby.alchemyapi.io/v2/rljYzpFHeHk60JLsmEkZMwjdnUzoHznO',
     )
+    return sdk.getNFTModule('0xF9a55237B4Ffc9D0C8F466AE59E30Cc0A3084d18')
   }, [provider])
 
-
+  // Get all NFTs in the collection
+  useEffect(() => {
+    if (!nftModule) return
+    ;(async () => {
+      const nfts = await nftModule.getAll()
+      
+      const selectedNftArray = nfts.find(
+        (nft) => nft.id === router.query.assetId
+      )
+      
+      setSelectedNft(selectedNftArray)
+    })()
+      
+    
+  },[nftModule])
 
 
 
