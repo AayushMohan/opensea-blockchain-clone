@@ -20,6 +20,7 @@ const style = {
 
 const Header = () => {
   return (
+    // Wrapper
     <div className={style.wrapper}>
       <Link href="/">
         <div className={style.logoContainer}>
@@ -36,6 +37,8 @@ const Header = () => {
           placeholder="Search items, collections and accounts"
         />
       </div>
+
+      {/* Header Items */}
       <div className={style.headerItems}>
         <Link href="/collections/0xF9a55237B4Ffc9D0C8F466AE59E30Cc0A3084d18">
           <div className={style.headerItem}>Collections</div>
@@ -46,6 +49,8 @@ const Header = () => {
         <div className={style.headerIcon}>
           <CgProfile />
         </div>
+
+        {/* Header Icon */}
         <div className={style.headerIcon}>
           <MdOutlineAccountBalanceWallet />
         </div>
